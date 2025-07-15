@@ -11,20 +11,16 @@ base {
 }
 
 loom {
-    splitEnvironmentSourceSets()
 
     mods {
         "nocapslock" {
             sourceSet sourceSets.main
-            sourceSet sourceSets.client
         }
     }
 }
 
 fabricApi {
-    configureDataGeneration {
-        client = true
-    }
+
 }
 
 repositories {

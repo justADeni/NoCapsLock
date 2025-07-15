@@ -1,10 +1,11 @@
 package com.github.justadeni.nocapslock;
 
-import net.fabricmc.api.ModInitializer;
+import net.fabricmc.api.ClientModInitializer;
 
-public class Nocapslock implements ModInitializer {
+public class Nocapslock implements ClientModInitializer {
 
     @Override
-    public void onInitialize() {
+    public void onInitializeClient() {
+
     }
 }

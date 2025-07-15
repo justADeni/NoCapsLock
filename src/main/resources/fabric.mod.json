@@ -4,28 +4,20 @@
   "version": "${version}",
   "name": "NoCapsLock",
   "description": "Disables caps lock",
-  "authors": [],
+  "authors": [
+    "justADeni"
+  ],
   "contact": {},
   "license": "MIT",
   "icon": "assets/nocapslock/icon.png",
   "environment": "client",
   "entrypoints": {
-    "fabric-datagen": [
-      "com.github.justadeni.nocapslock.client.NocapslockDataGenerator"
-    ],
     "client": [
-      "com.github.justadeni.nocapslock.client.NocapslockClient"
-    ],
-    "main": [
       "com.github.justadeni.nocapslock.Nocapslock"
     ]
   },
   "mixins": [
-    "nocapslock.mixins.json",
-    {
-      "config": "nocapslock.client.mixins.json",
-      "environment": "client"
-    }
+    "nocapslock.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=${loader_version}",

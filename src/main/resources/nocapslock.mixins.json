@@ -4,6 +4,7 @@
   "package": "com.github.justadeni.nocapslock.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "ChatScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1
