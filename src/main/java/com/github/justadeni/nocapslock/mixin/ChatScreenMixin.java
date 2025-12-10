@@ -1,6 +1,8 @@
 package com.github.justadeni.nocapslock.mixin;
 
 import net.minecraft.client.gui.widget.TextFieldWidget;
+import net.minecraft.client.input.CharInput;
+
 import org.lwjgl.glfw.GLFW;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -14,9 +16,9 @@ public abstract class ChatScreenMixin {
     @Shadow public abstract void write(String text);
 
     @Inject(method = "charTyped", at = @At("HEAD"), cancellable = true)
-    private void onCharTyped(char chr, int modifiers, CallbackInfoReturnable<Boolean> cir) {
-        this.write(String.valueOf(((modifiers & GLFW.GLFW_MOD_SHIFT) == 0) ? Character.toLowerCase(chr) : Character.toUpperCase(chr)));
+    private void onCharTyped(CharInput input, CallbackInfoReturnable<Boolean> cir) {
+        String str = input.asString();
+        this.write(String.valueOf(((input.modifiers() & GLFW.GLFW_MOD_SHIFT) == 0) ? str.toLowerCase() : str.toUpperCase()));
         cir.setReturnValue(true);
     }
-
 }
